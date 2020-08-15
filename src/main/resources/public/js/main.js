@@ -8,7 +8,14 @@ angular.module("reCaptchaDemo",[])
                 data: $.param(auth),
                 headers: {"Content-Type" : "application/x-www-form-urlencoded"}
 
-            });
+            }).then(
+                function(data) {
+                    window.alert("Registered");
+                },
+                function (error) {
+                    window.alert("Error");
+                }
+            )
         }
     })
     .directive("recaptcha", function(){
