@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>reCAPTCHA demo</title>
-    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -11,41 +11,53 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-</head>
-<body ng-app="reCaptchaDemo" ng-controller="AppCtrl">
-<div class = "container" style="">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <h1 class="page-header">reCAPTCHA Demo</h1>
-            <form style ="..." name="form" autocomplete="off" novalidate ng-submit="form.$valid && sendForm(auth)">
-                <div class="form-group">
-                    <label for="exampleInputEmail">Email adress</label>
-                    <input type="email"
-                            class="form-control"
-                            id="exampleInputEmail"
-                            placeholder="Email"
-                            required
-                            ng-model="auth.email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword">Password</label>
-                    <input type="password"
-                           class="form-control"
-                           id="exampleInputPassword"
-                           placeholder="Password"
-                           required
-                           ng-model="auth.password">
-                </div>
-                <recaptcha sitekey="6Ld8Kb8ZAAAAAGiJPMkl_ujvfEplvkpIYv7bpNU4"
-                            ng-model="auth.recaptchaResponse">
 
-                </recaptcha>
-                <button type="submit" class="btn btn-default" style="..." ng-disabled="form.$invalid">
-                    Submit
-                </button>
-            </form>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/signing.css" rel="stylesheet">
+</head>
+<body class="text-center" ng-app="reCaptchaDemo" ng-controller="AppCtrl">
+<div class="container" style="">
+    <h1 class="h3 mb-3 font-weight-normal">reCAPTCHA Demo</h1>
+    <form class="form-signin" style="..." name="form" autocomplete="off" novalidate
+          ng-submit="form.$valid && sendForm(auth)">
+        <div class="form-group">
+            <label for="exampleInputEmail">Email adress</label>
+            <input type="email"
+                   class="form-control"
+                   id="exampleInputEmail"
+                   placeholder="Email"
+                   required
+                   autofocus
+                   ng-model="auth.email">
         </div>
-    </div>
+        <div class="form-group">
+            <label for="exampleInputPassword">Password</label>
+            <input type="password"
+                   class="form-control"
+                   id="exampleInputPassword"
+                   placeholder="Password"
+                   required
+                   ng-model="auth.password">
+        </div>
+        <recaptcha sitekey="6Ld8Kb8ZAAAAAGiJPMkl_ujvfEplvkpIYv7bpNU4"
+                   ng-model="auth.recaptchaResponse">
+
+        </recaptcha>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" style="..." ng-disabled="form.$invalid">
+            Submit
+        </button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+    </form>
 </div>
 </body>
 </html>
