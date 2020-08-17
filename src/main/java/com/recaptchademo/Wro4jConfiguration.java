@@ -17,6 +17,11 @@ import java.util.stream.Stream;
 
 @Configuration
 public class Wro4jConfiguration {
+    private static final List<String> OTHER_WRO_PROPS = ImmutableList.of(
+            ConfigurableProcessorsFactory.PARAM_POST_PROCESSORS,
+            ConfigurableProcessorsFactory.PARAM_PRE_PROCESSORS
+    );
+
     @Bean
     public FilterRegistrationBean webResourceOptimizer(Environment environment) {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
@@ -51,9 +56,4 @@ public class Wro4jConfiguration {
             properties.put(name, value);
         }
     }
-
-    private static final List<String> OTHER_WRO_PROPS = ImmutableList.of(
-            ConfigurableProcessorsFactory.PARAM_POST_PROCESSORS,
-            ConfigurableProcessorsFactory.PARAM_PRE_PROCESSORS
-    );
 }

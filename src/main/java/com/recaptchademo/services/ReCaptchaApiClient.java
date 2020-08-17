@@ -13,12 +13,11 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 @Component
 public class ReCaptchaApiClient {
+    private final RestTemplate restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory(HttpClientBuilder.create().build()));
     @Value("${app.reCaptcha.apiUrl}")
     private String reCaptchaApiUrl;
     @Value("${app.reCaptcha.secretKey}")
     private String secretKey;
-
-    private final RestTemplate restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory(HttpClientBuilder.create().build()));
 
     public ReCaptchaResponseDto verify(String recaptchaResponse) {
         MultiValueMap<String, String> form = new LinkedMultiValueMap<>();

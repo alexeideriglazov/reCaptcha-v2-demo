@@ -4,7 +4,6 @@ import com.recaptchademo.dtos.ReCaptchaResponseDto;
 import com.recaptchademo.dtos.RegisterDto;
 import com.recaptchademo.services.ReCaptchaApiClient;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = {"http://localhost:8085", "http://localhost:8080"})
 public class AuthController {
     @Autowired
     private ReCaptchaApiClient reCaptchaApiClient;
